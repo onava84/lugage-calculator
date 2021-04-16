@@ -1,0 +1,13 @@
+.filter-container {
+   text-align: left;
+   border: solid 4px tomato;
+   padding: 20px;
+}
+
+.select-label, .select-options, .unit {
+   display: inline;
+}
+
+.select-options {
+   margin-left: 10px;
+}

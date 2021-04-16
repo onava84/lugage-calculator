@@ -1,0 +1,52 @@
+.available-item {
+   /* border: solid 2px gray; */
+   margin: 20px;
+   padding: 20px;
+   background-color: rgb(255, 255, 255);
+   border-radius: 10px;
+   text-align: left;
+}
+
+.item-image {
+   width: 180px;
+   height: 180px;
+   object-fit: cover;
+}
+
+.quantity-input {
+   width: 25px;
+   margin: 10px;
+   text-align: center;
+}
+
+.quantity-number {
+   display:inline;
+   margin: 10px;
+}
+
+.quantity-changer {
+   margin: 15px 0;
+}
+
+.delete {
+   display: block;
+   position: relative;
+   left: 0px;
+   top: 0px;
+}
+
+.item-button {
+   display: block;
+   margin-bottom: 10px;
+}
+
+.edit-section {
+   margin-top: 10px;
+   display: flex;
+   flex-direction: column;
+}
+
+.edit-field {
+   margin-top: 4px;
+   margin-bottom: 4px;
+}

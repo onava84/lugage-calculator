@@ -36,3 +36,14 @@
     transform: rotate(360deg);
   }
 }
+
+.main-container {
+   border: solid 4px rgb(0, 139, 171);
+   display: flex;
+   justify-content: space-around;
+}
+
+.left-content {
+   border: solid 4px orange;
+   width: 70%;
+}

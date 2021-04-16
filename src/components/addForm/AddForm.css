@@ -1,0 +1,10 @@
+.form-container {
+   border: solid 4px rgb(130, 130, 130);
+   padding: 20px;
+   text-align: left;
+}
+
+.input-field {
+   height: 25px;
+   margin-right: 20px;
+}
