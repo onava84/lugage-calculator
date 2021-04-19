@@ -28,7 +28,8 @@ class FilterItems extends Component {
                <option value="400">400</option>
                <option value="600">600</option>
                <option value="800">800</option>
-               <option selected value="1000">1000</option>
+               <option value="1000">1000</option>
+               <option selected value="none">none</option>
             </select>
             <p className="unit">g</p>
          </div>

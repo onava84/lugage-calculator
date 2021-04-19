@@ -5,7 +5,7 @@ import Header from './components/header/Header'
 import Luggage from './components/luggage/Luggage'
 import AddForm from './components/addForm/AddForm'
 import axios from 'axios'
-// import FilterItems from './components/filterItems/FilterItems'
+import FilterItems from './components/filterItems/FilterItems'
 
 
 class App extends Component {
@@ -95,7 +95,7 @@ class App extends Component {
            <div className="main-container">
               <div className="left-content">
                  <AddForm getItems={this.getItems} />
-                 {/* <FilterItems getItemsQuery={this.getItemsQuery} handleDropdown={this.handleDropdown}/> */}
+                 <FilterItems getItemsQuery={this.getItemsQuery} handleDropdown={this.handleDropdown}/>
                  <DisplayedItems availableItems={this.state.availableItems} addToLuggage={this.addToLuggage} deleteAvailableItem={this.deleteAvailableItem} getItems={this.getItems} getItemsQuery={this.getItemsQuery} weightRange={this.state.weightRange}/>
               </div>
               <Luggage luggageItems={this.state.luggageItems} totalWeight={this.state.totalWeight} removeFromLuggage={this.removeFromLuggage} />
