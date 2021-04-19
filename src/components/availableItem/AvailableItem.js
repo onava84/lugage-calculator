@@ -59,10 +59,11 @@ class AvailableItem extends Component {
       }
       axios.put(`/api/items/${id}`, updatedItem)
       .then(res => {
-         console.log(res)
-         this.props.weightRangeUpdateAgain()
+         // console.log(res)
+         this.props.getItems()
          this.showEditForm();
          this.cleanInputs();
+         // this.props.getItemsQuery(this.props.weightRange)
       })
 
    }

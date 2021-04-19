@@ -5,8 +5,8 @@ import Header from './components/header/Header'
 import Luggage from './components/luggage/Luggage'
 import AddForm from './components/addForm/AddForm'
 import axios from 'axios'
-import FilterItems from './components/filterItems/FilterItems'
-// import express from 'express';
+// import FilterItems from './components/filterItems/FilterItems'
+
 
 class App extends Component {
    constructor() {
@@ -16,7 +16,7 @@ class App extends Component {
          luggageItems: [],
          itemsSelected: [],
          totalWeight: 0,
-         weightRange: 1000,
+         weightRange: 0
       }
    }
 
@@ -28,38 +28,24 @@ class App extends Component {
       })
    }
 
-   weightRangeUpdate = (e) => {
-      // console.log(e.target.value)
-      this.setState({
-         weightRange: e.target.value
-      })
-   }
-
-   weightRangeUpdateAgain = () => {
-      axios.get(`/api/items?weight=${this.state.weightRange}`).then(res => {
+   getItemsQuery = (query) => {
+      axios.get(`/api/items?weight=${query}`).then(res => {
          this.setState({
             availableItems: res.data
          })
       })
    }
 
-   componentDidUpdate = (prevProps, prevState) => {
+   handleDropdown = (e) => {
+      this.setState({
+         weightRange: e.target.value
+      })
+   }
+
+   componentDidUpdate = (prevProps,prevState) => {
       if(prevState.weightRange !== this.state.weightRange) {
-         axios.get(`/api/items?weight=${this.state.weightRange}`).then(res => {
-            // console.log(res)
-            this.setState({
-               availableItems: res.data
-            })
-         })
+         this.getItemsQuery(this.state.weightRange)
       }
-      // else if(prevState !== this.state) {
-      //    axios.get(`/api/items?weight=${this.state.weightRange}`).then(res => {
-      //       // console.log(res)
-      //       this.setState({
-      //          availableItems: res.data
-      //       })
-      //    })
-      // }
    }
 
    componentDidMount = () => {
@@ -102,15 +88,15 @@ class App extends Component {
 
 
    render() {
-      console.log(this.state)
+      console.log(this.state.weightRange)
       return (
          <div className="App">
            <Header />
            <div className="main-container">
               <div className="left-content">
                  <AddForm getItems={this.getItems} />
-                 <FilterItems getItems={this.getItems} handleWeightFilter={this.handleWeightFilter} weightRange={this.state.weightRange} weightRangeUpdate={this.weightRangeUpdate} />
-                 <DisplayedItems availableItems={this.state.availableItems} addToLuggage={this.addToLuggage} deleteAvailableItem={this.deleteAvailableItem} getItems={this.getItems} weightRange={this.state.weightRange} weightRangeUpdateAgain={this.weightRangeUpdateAgain}/>
+                 {/* <FilterItems getItemsQuery={this.getItemsQuery} handleDropdown={this.handleDropdown}/> */}
+                 <DisplayedItems availableItems={this.state.availableItems} addToLuggage={this.addToLuggage} deleteAvailableItem={this.deleteAvailableItem} getItems={this.getItems} getItemsQuery={this.getItemsQuery} weightRange={this.state.weightRange}/>
               </div>
               <Luggage luggageItems={this.state.luggageItems} totalWeight={this.state.totalWeight} removeFromLuggage={this.removeFromLuggage} />
            </div>

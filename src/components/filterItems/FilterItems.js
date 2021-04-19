@@ -9,15 +9,21 @@ class FilterItems extends Component {
       }
    }
 
-
+   // handleChange = (e) => {
+   //    this.setState({
+   //       weightRange: e.target.value
+   //    })
+   //    this.props.getItemsQuery(e.target.value)
+   // }
 
    render() {
+      // console.log(this.state.weightRange)
       // console.log(this.state.weightRange)
       return (
          <div className="filter-container">
             <h2>FilterItems component</h2>
             <p className="select-label">Items up to</p>
-            <select className="select-options" onChange={this.props.weightRangeUpdate}>
+            <select className="select-options" onChange={e => this.props.handleDropdown(e)}>
                <option value="200">200</option>
                <option value="400">400</option>
                <option value="600">600</option>
