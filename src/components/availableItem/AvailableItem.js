@@ -59,18 +59,26 @@ class AvailableItem extends Component {
       }
       axios.put(`/api/items/${id}`, updatedItem)
       .then(res => {
-         // console.log(res)
-         this.props.getItems()
+         console.log(res.data)
+         // this.props.resDataOnState(res.data)
+         this.props.getItemsQuery(this.props.weightRange)
          this.showEditForm();
          this.cleanInputs();
          // this.props.getItemsQuery(this.props.weightRange)
+      }).catch(err => {
+         console.log(err)
       })
 
    }
 
    handleInputChange = (e) => {
+      let tempVar = e.target.value
+      if(e.target.name === "weight") {
+         tempVar = +e.target.value
+      }
+      console.log(typeof tempVar)
       this.setState({
-         [e.target.name]: e.target.value
+         [e.target.name]: tempVar
       })
    }
    
@@ -78,7 +86,7 @@ class AvailableItem extends Component {
    render() {
       return (
       <div className="available-item">
-         <button className="delete" onClick={() => this.props.deleteAvailableItem(this.props.id)}>X</button>
+         <button className="delete" onClick={() => this.props.deleteAvailableItem(this.props.id)}>x</button>
          <img className="item-image" src={this.props.image}></img>
          <h3>{this.props.name}</h3>
          <p>Weight: {this.props.weight} g</p>
@@ -88,11 +96,11 @@ class AvailableItem extends Component {
             <button onClick={e => this.additionClick(e)}>+</button>
          </div>
          <button onClick={(e) => this.addToLuggageClick(e)} className="item-button">Add to luggage</button>
-         <button onClick={(e) => this.showEditForm(e)}>{this.state.editForm?"Cancel edit":"Edit item"}</button>
+         <button onClick={(e) => this.showEditForm(e)} className={this.state.editForm?"cancel-edit":"update"}>{this.state.editForm?"Cancel edit":"Edit item"}</button>
          {this.state.editForm?
          <div className="edit-section"> 
             <input className="edit-field" value={this.state.name} placeholder="item name" name="name" onChange={(e) => this.handleInputChange(e)} />
-            <input className="edit-field" value={this.state.weight} placeholder="weight" name="weight" onChange={(e) => this.handleInputChange(e)} />
+            <input className="edit-field" value={this.state.weight} type="number" placeholder="weight" name="weight" onChange={(e) => this.handleInputChange(e)} />
             <input className="edit-field" value={this.state.image} placeholder="image" name="image" onChange={(e) => this.handleInputChange(e)} />
             <button onClick={e => this.updateAvailableItem(this.props.id)}>Update</button>
          </div>

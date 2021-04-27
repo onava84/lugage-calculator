@@ -16,7 +16,7 @@ class App extends Component {
          luggageItems: [],
          itemsSelected: [],
          totalWeight: 0,
-         weightRange: 0
+         weightRange: 1200
       }
    }
 
@@ -25,6 +25,14 @@ class App extends Component {
          this.setState({
             availableItems: res.data
          })
+      }).catch(err => {
+         console.log(err)
+      })
+   }
+
+   resDataOnState = (array) => {
+      this.setState({
+         availableItems:array
       })
    }
 
@@ -33,6 +41,8 @@ class App extends Component {
          this.setState({
             availableItems: res.data
          })
+      }).catch(err => {
+         console.log(err)
       })
    }
 
@@ -44,6 +54,7 @@ class App extends Component {
 
    componentDidUpdate = (prevProps,prevState) => {
       if(prevState.weightRange !== this.state.weightRange) {
+         console.log(this.state.weightRange)
          this.getItemsQuery(this.state.weightRange)
       }
    }
@@ -88,15 +99,16 @@ class App extends Component {
 
 
    render() {
-      console.log(this.state.weightRange)
+      // console.log(this.state.weightRange, this.state.availableItems)
+
       return (
          <div className="App">
            <Header />
            <div className="main-container">
-              <div className="left-content">
+              <div className="left-container">
                  <AddForm getItems={this.getItems} />
                  <FilterItems getItemsQuery={this.getItemsQuery} handleDropdown={this.handleDropdown}/>
-                 <DisplayedItems availableItems={this.state.availableItems} addToLuggage={this.addToLuggage} deleteAvailableItem={this.deleteAvailableItem} getItems={this.getItems} getItemsQuery={this.getItemsQuery} weightRange={this.state.weightRange}/>
+                 <DisplayedItems availableItems={this.state.availableItems} addToLuggage={this.addToLuggage} deleteAvailableItem={this.deleteAvailableItem} getItems={this.getItems} getItemsQuery={this.getItemsQuery} weightRange={this.state.weightRange} resDataOnState={this.resDataOnState}/>
               </div>
               <Luggage luggageItems={this.state.luggageItems} totalWeight={this.state.totalWeight} removeFromLuggage={this.removeFromLuggage} />
            </div>

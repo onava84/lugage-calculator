@@ -1,6 +1,7 @@
 .displayed-items {
-   border: solid 4px red;
-   background-color: rgb(16, 16, 16);
+   /* border: solid 4px red; */
+   /* background-color: rgb(16, 16, 16); */
    display: flex;
    flex-wrap: wrap;
+   justify-content: flex-start;
 }

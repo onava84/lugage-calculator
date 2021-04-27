@@ -1,3 +1,9 @@
 .header-container {
-   border: solid 4px blue;
+   /* border: solid 4px blue; */
+   /* height: 100px; */
+   padding: 10px;
+   background-image: linear-gradient(to right, rgb(0, 65, 114) , rgb(0, 120, 211));;
+}
+.main-title {
+   color: white;
 }

@@ -1,10 +1,22 @@
 .form-container {
-   border: solid 4px rgb(130, 130, 130);
+   /* border: solid 4px rgb(130, 130, 130); */
    padding: 20px;
    text-align: left;
 }
 
-.input-field {
+.input-field, input {
    height: 25px;
    margin-right: 20px;
+   padding: 5px;
+   border: solid 2px rgb(0, 120, 211);
+   border-radius: 5px;
+}
+
+.add-button, button {
+   background-color: rgb(0, 120, 211);
+   color: white;
+   border-radius: 3px;
+   font-size: 16px;
+   font-weight: 700;
+   border: none;
 }

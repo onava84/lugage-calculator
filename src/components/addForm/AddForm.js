@@ -43,11 +43,11 @@ class AddForm extends Component {
             this.props.getItems()
             this.cleanInputs()
          }   
-         )
+         ).catch(err => {
+            console.log(err)
+         })
       }
    }
-
-
 
    render() {
       // console.log(this.state.itemName,this.state.itemWeight,this.state.itemImage)
@@ -55,9 +55,9 @@ class AddForm extends Component {
          <div className="form-container">
             <h3>Add new item</h3>
             <input name="itemName" onChange={(e) => this.handleInput(e)} placeholder="name" className="input-field" value={this.state.itemName}/>
-            <input name="itemWeight" onChange={(e) => this.handleInput(e)} placeholder="weight" className="input-field" value={this.state.weight}/>
-            <input name="itemImage" onChange={(e) => this.handleInput(e)} placeholder="image" className="input-field" value={this.state.image}/>
-            <button onClick={() => this.addAvailableItem()}>Add item</button>
+            <input name="itemWeight" onChange={(e) => this.handleInput(e)} placeholder="weight" className="input-field" value={this.state.itemWeight}/>
+            <input name="itemImage" onChange={(e) => this.handleInput(e)} placeholder="image" className="input-field" value={this.state.itemImage}/>
+            <button className="add-button" onClick={() => this.addAvailableItem()}>Add item</button>
          </div>
       )
    }

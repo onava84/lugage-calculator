@@ -38,12 +38,13 @@
 }
 
 .main-container {
-   border: solid 4px rgb(0, 139, 171);
+   /* border: solid 4px rgb(0, 139, 171); */
    display: flex;
    justify-content: space-around;
+   background-color: rgb(228, 228, 228)
 }
 
-.left-content {
-   border: solid 4px orange;
+.left-container {
+   /* border: solid 4px orange; */
    width: 70%;
 }

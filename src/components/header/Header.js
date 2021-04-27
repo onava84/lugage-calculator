@@ -4,7 +4,7 @@ import './Header.css'
 function Header() {
    return(
       <div className="header-container">
-         <h1>Lugagge Calculator</h1>
+         <h1 className="main-title" >Luggage Calculator</h1>
       </div>
    )
 }

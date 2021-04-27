@@ -7,6 +7,12 @@
    text-align: left;
 }
 
+.available-item:hover {
+   box-shadow: -1px 1px 19px 1px rgba(0,0,0,0.49);
+-webkit-box-shadow: -1px 1px 19px 1px rgba(0,0,0,0.49);
+-moz-box-shadow: -1px 1px 19px 1px rgba(0,0,0,0.49);
+}
+
 .item-image {
    width: 180px;
    height: 180px;
@@ -49,4 +55,19 @@
 .edit-field {
    margin-top: 4px;
    margin-bottom: 4px;
+}
+
+button {
+   padding: 10px;
+}
+
+.delete {
+   padding: 5px;
+}
+.update {
+   background-color: rgb(43, 134, 23);
+}
+
+.cancel-edit {
+   background-color: rgb(139, 29, 29);
 }

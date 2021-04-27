@@ -1,7 +1,7 @@
 const express = require('express')
 const app = express()
 const ic = require('./itemsController')
-const PORT = 7676
+const PORT = 6000
 app.use(express.json())
 
 app.get("/api/items", ic.read)
