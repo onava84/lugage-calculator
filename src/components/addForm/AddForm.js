@@ -61,6 +61,5 @@ class AddForm extends Component {
          </div>
       )
    }
-}
-
+} 
 export default AddForm
