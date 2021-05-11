@@ -52,12 +52,29 @@ class AvailableItem extends Component {
    } 
 
    updateAvailableItem = (id) => {
-      let updatedItem = {
-         name: this.state.name,
-         weight: this.state.weight,
-         image: this.state.image
+      const originalItem = {
+         name: this.props.name,
+         weight: this.props.weight,
+         image: this.props.image,
       }
-      axios.put(`/api/items/${id}`, updatedItem)
+      const updatedItem = {}
+
+      if(this.state.name.length > 0){
+         updatedItem.name = this.state.name
+      }
+      if(this.state.image.length > 0){
+         updatedItem.image = this.state.image
+      }
+      if(this.state.weight.toString().length > 0){
+         updatedItem.weight = this.state.weight
+      }
+
+      const newObject = {
+         ...originalItem,
+         ...updatedItem 
+      }
+
+      axios.put(`/api/items/${id}`, newObject)
       .then(res => {
          console.log(res.data)
          // this.props.resDataOnState(res.data)

@@ -90,10 +90,11 @@ class App extends Component {
 
    deleteAvailableItem = (id) => {
       axios.delete(`/api/items/${id}`).then(res => {
-         console.log(res)
-         this.setState({
-            availableItems: res.data
-         })
+         console.log(res.data)
+         // this.setState({
+         //    availableItems: res.data
+         // })
+         this.getItems()
       })
    }
 
